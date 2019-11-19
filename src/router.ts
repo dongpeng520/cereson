@@ -144,19 +144,6 @@ export default new Router({
       ]
     },
     {
-      path: 'external-link',
-      component: Layout,
-      children: [
-        {
-          path: 'https://github.com/Armour/vue-typescript-admin-template',
-          meta: {
-            title: 'External Link',
-            icon: 'link'
-          }
-        }
-      ]
-    },
-    {
       path: '*',
       redirect: '/404',
       meta: { hidden: true }

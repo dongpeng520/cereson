@@ -1,12 +1,7 @@
 const path = require('path')
-const name = 'Vue Typescript Admin'
-
+const isProduction = process.env.NODE_ENV === 'production'
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/vue-typescript-admin-template/' : '/', // TODO: Remember to change this to fit your need
-  lintOnSave: process.env.NODE_ENV === 'development',
-  pwa: {
-    name: name
-  },
+  publicPath: '/',
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'scss',
@@ -19,6 +14,23 @@ module.exports = {
   chainWebpack(config) {
     // Provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
-    config.set('name', name)
+    if (isProduction) {
+      config.devtool = false
+      config.plugins.push(new CompressionWebpackPlugin({
+        algorithm: 'gzip',
+        test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
+        threshold: 10240,
+        minRatio: 0.8
+      }))
+    }
+  },
+  devServer: {
+    // host: "127.0.0.1",
+    port: 8080,
+    proxy: {
+      '/login': {
+        target: 'http://127.0.0.1'
+      }
+    }
   }
 }
