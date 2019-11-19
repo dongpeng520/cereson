@@ -44,7 +44,7 @@ export default new Router({
           path: 'dashboard',
           component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'),
           meta: {
-            title: 'Dashboard',
+            title: '概括',
             icon: 'dashboard'
           }
         }
@@ -55,7 +55,7 @@ export default new Router({
       component: Layout,
       redirect: '/example/tree',
       meta: {
-        title: 'Example',
+        title: '组件',
         icon: 'example'
       },
       children: [
@@ -63,7 +63,7 @@ export default new Router({
           path: 'tree',
           component: () => import(/* webpackChunkName: "tree" */ '@/views/tree/index.vue'),
           meta: {
-            title: 'Tree',
+            title: '树形图',
             icon: 'tree'
           }
         },
@@ -71,7 +71,7 @@ export default new Router({
           path: 'table',
           component: () => import(/* webpackChunkName: "table" */ '@/views/table/index.vue'),
           meta: {
-            title: 'Table',
+            title: '表格1',
             icon: 'table'
           }
         }
@@ -85,7 +85,7 @@ export default new Router({
           path: 'index',
           component: () => import(/* webpackChunkName: "form" */ '@/views/form/index.vue'),
           meta: {
-            title: 'Form',
+            title: '表单',
             icon: 'form'
           }
         }
@@ -96,7 +96,7 @@ export default new Router({
       component: Layout,
       redirect: '/nested/menu1',
       meta: {
-        title: 'Nested',
+        title: '多级菜单',
         icon: 'nested'
       },
       children: [

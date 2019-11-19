@@ -27,7 +27,7 @@
             <span
               style="display:block;"
               @click="logout"
-            >LogOut</span>
+            >退出</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
