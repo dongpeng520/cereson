@@ -15,13 +15,7 @@ module.exports = {
       ]
     }
   },
-  chainWebpack(config) {
-    config
-      .when(process.env.NODE_ENV === 'development',
-        config => config.devtool('cheap-source-map')
-      )
-    // Provide the app's title in webpack's name field, so that
-    // it can be accessed in index.html to inject the correct title.
+  configureWebpack: config => {
     if (isProduction) {
       config.devtool = false
       config.plugins.push(new CompressionWebpackPlugin({
@@ -31,6 +25,14 @@ module.exports = {
         minRatio: 0.8
       }))
     }
+  },
+  chainWebpack(config) {
+    // provide the app's title in webpack's name field, so that
+    // it can be accessed in index.html to inject the correct title.
+    config
+      .when(process.env.NODE_ENV === 'development',
+        config => config.devtool('cheap-source-map')
+      )
   },
   devServer: {
     // host: "127.0.0.1",
