@@ -1,7 +1,7 @@
-const CompressionWebpackPlugin = require('compression-webpack-plugin')
-const productionGzipExtensions = ['js', 'css']
-const path = require('path')
-const isProduction = process.env.NODE_ENV === 'production'
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const productionGzipExtensions = ['js', 'css'];
+const path = require('path');
+const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
   publicPath: '/',
   lintOnSave: process.env.NODE_ENV === 'development',
@@ -10,20 +10,20 @@ module.exports = {
     'style-resources-loader': {
       preProcessor: 'scss',
       patterns: [
-        path.resolve(__dirname, 'src/styles/_variables.scss'),
-        path.resolve(__dirname, 'src/styles/_mixins.scss')
+        // path.resolve(__dirname, 'src/styles/_variables.scss'),
+        // path.resolve(__dirname, 'src/styles/_mixins.scss')
       ]
     }
   },
   configureWebpack: config => {
     if (isProduction) {
-      config.devtool = false
+      config.devtool = false;
       config.plugins.push(new CompressionWebpackPlugin({
         algorithm: 'gzip',
         test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
         threshold: 10240,
         minRatio: 0.8
-      }))
+      }));
     }
   },
   chainWebpack(config) {
@@ -32,7 +32,7 @@ module.exports = {
     config
       .when(process.env.NODE_ENV === 'development',
         config => config.devtool('cheap-source-map')
-      )
+      );
   },
   devServer: {
     // host: "127.0.0.1",
@@ -43,4 +43,4 @@ module.exports = {
       }
     }
   }
-}
+};
