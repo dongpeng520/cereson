@@ -191,7 +191,6 @@ export default class extends Vue {
   get lang() {
     return AppModule.language;
   }
-
   set lang(lang) {
     AppModule.SetLanguage(lang);
     this.$i18n.locale = lang;
