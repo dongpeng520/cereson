@@ -1,9 +1,6 @@
 <template>
   <div>
-    <el-card
-      class="box-card"
-      style="margin-top: 40px;"
-    >
+    <el-card class="box-card" style="margin-top: 40px;">
       <div
         slot="header"
         class="clearfix"
@@ -164,7 +161,7 @@ import local from './local';
   name: 'I18n'
 })
 export default class extends Vue {
-  private date = ''
+  private date = '';
   private value = ''
   private options: any[] = []
   private tableData = [{

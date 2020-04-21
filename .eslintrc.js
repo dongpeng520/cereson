@@ -27,7 +27,14 @@ module.exports = {
     'vue/key-spacing': 'error',
     'vue/match-component-file-name': 'error',
     'vue/object-curly-spacing': 'error',
-    'semi': ["error", "always"]
+    'semi': ["error", "always"], // 分号，双引号报错提示
+    "vue/max-attributes-per-line": ["error", { // html属性不换行报错提示
+      "singleline": 3,
+      "multiline": {
+        "max": 3,
+        "allowFirstLine": true
+      }
+    }],
   },
   'extends': [
     'eslint:recommended',
