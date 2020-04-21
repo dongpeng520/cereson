@@ -1,6 +1,7 @@
 <template>
   <el-scrollbar wrap-class="scrollbar-wrapper">
     <el-menu
+      :default-active="activeMenu"
       :collapse="isCollapse"
       :background-color="variables.menuBg"
       :text-color="variables.menuText"
@@ -43,6 +44,16 @@ export default class extends Vue {
 
   get variables() {
     return variables;
+  }
+
+  get activeMenu() {
+    const route = this.$route;
+    const { meta, path } = route;
+    // if set path, the sidebar will highlight the path you set
+    if (meta.activeMenu) {
+      return meta.activeMenu;
+    }
+    return path;
   }
 
   get isCollapse() {

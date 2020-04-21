@@ -64,6 +64,13 @@
         </template>
       </el-table-column>
     </el-table>
+    <pagination
+      v-show="total>0"
+      :total="total"
+      :page.sync="listQuery.page"
+      :limit.sync="listQuery.limit"
+      @pagination="getList"
+    />
   </div>
 </template>
 
@@ -71,9 +78,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { getArticles } from '@/api/articles';
 import { IArticleData } from '@/api/types';
+import Pagination from '@/components/Pagination/index.vue';
 
 @Component({
   name: 'Table',
+  components: {
+    Pagination
+  },
   filters: {
     statusFilter: (status: string) => {
       const statusMap: { [key: string]: string } = {
@@ -89,6 +100,7 @@ import { IArticleData } from '@/api/types';
   }
 })
 export default class extends Vue {
+  private total = 0
   private list: IArticleData[] = []
   private listLoading = true
   private listQuery = {
@@ -105,6 +117,7 @@ export default class extends Vue {
     const { data } = await getArticles(this.listQuery);
     this.list = data.items;
     // Just to simulate the time of the request
+    this.total = data.total;
     setTimeout(() => {
       this.listLoading = false;
     }, 0.5 * 1000);
