@@ -159,6 +159,21 @@ export default new Router({
       ]
     },
     {
+      path: '/dialog',
+      component: Layout,
+      children: [
+        {
+          path: 'index',
+          component: () => import(/* webpackChunkName: "dialog" */ '@/views/dialog/index.vue'),
+          name: 'dialog',
+          meta: {
+            title: 'dialog',
+            icon: 'international'
+          }
+        }
+      ]
+    },
+    {
       path: '*',
       redirect: '/404',
       meta: { hidden: true }
