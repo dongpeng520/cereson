@@ -71,6 +71,17 @@
       :limit.sync="listQuery.limit"
       @pagination="getList"
     />
+    <el-tooltip
+      placement="top"
+      content="Customize your tooltip content here"
+    >
+      <back-to-top
+        :custom-style="myBackToTopStyle"
+        :visibility-height="300"
+        :back-position="50"
+        transition-name="fade"
+      />
+    </el-tooltip>
   </div>
 </template>
 
@@ -79,11 +90,13 @@ import { Component, Vue } from 'vue-property-decorator';
 import { getArticles } from '@/api/articles';
 import { IArticleData } from '@/api/types';
 import Pagination from '@/components/Pagination/index.vue';
+import BackToTop from '@/components/BackToTop/index.vue';
 
 @Component({
   name: 'Table',
   components: {
-    Pagination
+    Pagination,
+    BackToTop
   },
   filters: {
     statusFilter: (status: string) => {
@@ -107,7 +120,15 @@ export default class extends Vue {
     page: 1,
     limit: 20
   }
-
+  private myBackToTopStyle = {
+    right: '50px',
+    bottom: '50px',
+    width: '40px',
+    height: '40px',
+    'border-radius': '4px',
+    'line-height': '45px', // Please keep consistent with height to make it center vertically
+    background: '#e7eaf1'
+  }
   created() {
     this.getList();
   }
