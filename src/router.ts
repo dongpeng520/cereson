@@ -153,7 +153,7 @@ export default new Router({
           name: 'I18n',
           meta: {
             title: 'i18n',
-            icon: 'international'
+            icon: 'table'
           }
         }
       ]
@@ -168,7 +168,22 @@ export default new Router({
           name: 'dialog',
           meta: {
             title: 'dialog',
-            icon: 'international'
+            icon: 'table'
+          }
+        }
+      ]
+    },
+    {
+      path: '/upload',
+      component: Layout,
+      children: [
+        {
+          path: 'index',
+          component: () => import(/* webpackChunkName: "dialog" */ '@/views/upload/index.vue'),
+          name: 'upload',
+          meta: {
+            title: 'upload',
+            icon: 'table'
           }
         }
       ]
