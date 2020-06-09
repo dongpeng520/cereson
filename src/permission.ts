@@ -4,6 +4,7 @@ import 'nprogress/nprogress.css';
 import { Message } from 'element-ui';
 import { Route } from 'vue-router';
 import { UserModule } from '@/store/modules/user';
+import { PermissionModule } from './store/modules/permission';
 
 NProgress.configure({ showSpinner: false });
 
@@ -21,10 +22,20 @@ router.beforeEach(async(to: Route, _: Route, next: any) => {
       NProgress.done();
     } else {
       // Check whether the user has obtained his permission roles
+      debugger;
       if (UserModule.roles.length === 0) {
         try {
-          // Get user info, including roles
+          // Note: roles must be a object array! such as: ['admin'] or ['developer', 'editor']
           await UserModule.GetUserInfo();
+          const roles = UserModule.roles;
+          // Generate accessible routes map based on role
+          PermissionModule.GenerateRoutes(roles);
+          // Dynamically add accessible routes
+          console.log(router);
+          console.log(PermissionModule.dynamicRoutes);
+          router.addRoutes(PermissionModule.dynamicRoutes);
+          console.log(router);
+          // Hack: ensure addRoutes is complete
           // Set the replace: true, so the navigation will not leave a history record
           next({ ...to, replace: true });
         } catch (err) {
