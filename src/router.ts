@@ -194,7 +194,7 @@ export const asyncRoutes: RouteConfig[] = [
     component: Layout,
     redirect: '/permission/directive',
     meta: {
-      title: 'permission',
+      title: '权限测试页',
       icon: 'lock',
       roles: ['admin', 'editor'], // you can set roles in root nav
       alwaysShow: true // will always show the root menu
@@ -203,27 +203,27 @@ export const asyncRoutes: RouteConfig[] = [
       {
         path: 'page',
         component: () => import(/* webpackChunkName: "permission-page" */ '@/views/permission/page.vue'),
-        name: 'PagePermission',
+        name: '页面权限',
         meta: {
-          title: 'pagePermission',
+          title: '页面权限',
           roles: ['admin'] // or you can only set roles in sub nav
         }
       },
       {
         path: 'directive',
         component: () => import(/* webpackChunkName: "permission-directive" */ '@/views/permission/directive.vue'),
-        name: 'DirectivePermission',
+        name: '指令权限',
         meta: {
-          title: 'directivePermission'
+          title: '指令权限'
           // if do not set roles, means: this page does not require permission
         }
       },
       {
         path: 'role',
         component: () => import(/* webpackChunkName: "permission-role" */ '@/views/permission/role.vue'),
-        name: 'RolePermission',
+        name: '角色权限',
         meta: {
-          title: 'rolePermission',
+          title: '角色权限',
           roles: ['admin']
         }
       }
