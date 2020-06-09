@@ -51,7 +51,6 @@ class Permission extends VuexModule implements IPermissionState {
     } else {
       accessedRoutes = filterAsyncRoutes(asyncRoutes, roles);
     }
-    debugger;
     this.SET_ROUTES(accessedRoutes);
   }
 }

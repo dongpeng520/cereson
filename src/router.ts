@@ -181,11 +181,6 @@ export const constantRoutes: RouteConfig[] = [
         }
       }
     ]
-  },
-  {
-    path: '*',
-    redirect: '/404',
-    meta: { hidden: true }
   }
 ];
 
@@ -233,6 +228,11 @@ export const asyncRoutes: RouteConfig[] = [
         }
       }
     ]
+  },
+  {
+    path: '*',
+    redirect: '/404',
+    meta: { hidden: true }
   }
 ];
 
