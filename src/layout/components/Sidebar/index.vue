@@ -26,6 +26,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { AppModule } from '@/store/modules/app';
 import SidebarItem from './SidebarItem.vue';
 import variables from '@/styles/_variables.scss';
+import { PermissionModule } from '@/store/modules/permission';
 
 @Component({
   name: 'SideBar',
@@ -39,7 +40,8 @@ export default class extends Vue {
   }
 
   get routes() {
-    return (this.$router as any).options.routes;
+    return PermissionModule.routes;
+    // return (this.$router as any).options.routes;
   }
 
   get variables() {
