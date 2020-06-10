@@ -10,7 +10,7 @@ module.exports = {
     'style-resources-loader': {
       preProcessor: 'scss',
       patterns: [
-        // path.resolve(__dirname, 'src/styles/_variables.scss'),
+        // path.resolve(__dirname, 'src/styles/_variables.scss'), // 解决开发环境构建速度慢
         // path.resolve(__dirname, 'src/styles/_mixins.scss')
       ]
     }
@@ -31,7 +31,7 @@ module.exports = {
     // it can be accessed in index.html to inject the correct title.
     config
       .when(process.env.NODE_ENV === 'development',
-        config => config.devtool('cheap-source-map')
+        config => config.devtool('source-map') // 解决浏览器debugger源码查找
       );
   },
   devServer: {
