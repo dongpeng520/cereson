@@ -45,7 +45,7 @@ export const constantRoutes: RouteConfig[] = [
     ]
   },
   {
-    path: '/example',
+    path: '/master/example',
     component: Layout,
     redirect: '/example/tree',
     meta: {
@@ -72,7 +72,7 @@ export const constantRoutes: RouteConfig[] = [
     ]
   },
   {
-    path: '/form',
+    path: '/master/form',
     component: Layout,
     children: [
       {
@@ -138,7 +138,7 @@ export const constantRoutes: RouteConfig[] = [
     ]
   },
   {
-    path: '/i18n',
+    path: '/host/i18n',
     component: Layout,
     children: [
       {
@@ -153,7 +153,7 @@ export const constantRoutes: RouteConfig[] = [
     ]
   },
   {
-    path: '/dialog',
+    path: '/client/dialog',
     component: Layout,
     children: [
       {
