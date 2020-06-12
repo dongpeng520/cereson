@@ -32,6 +32,17 @@ router.beforeEach(async(to: Route, _: Route, next: any) => {
           // Dynamically add accessible routes
           console.log(router);
           console.log(PermissionModule.dynamicRoutes);
+          (router as any).options.routes.forEach((ele: any) => {
+            if (to.path.indexOf('/master') > -1 && ele.path.indexOf('/master') > -1) {
+              ele.meta.hidden = false;
+            }
+            if (to.path.indexOf('/host') > -1 && ele.path.indexOf('/host') > -1) {
+              ele.meta.hidden = false;
+            }
+            if (to.path.indexOf('/client') > -1 && ele.path.indexOf('/client') > -1) {
+              ele.meta.hidden = false;
+            }
+          });
           router.addRoutes(PermissionModule.dynamicRoutes);
           console.log(router);
           // Hack: ensure addRoutes is complete

@@ -50,7 +50,8 @@ export const constantRoutes: RouteConfig[] = [
     redirect: '/example/tree',
     meta: {
       title: '组件',
-      icon: 'example'
+      icon: 'example',
+      hidden: true
     },
     children: [
       {
@@ -74,6 +75,9 @@ export const constantRoutes: RouteConfig[] = [
   {
     path: '/master/form',
     component: Layout,
+    meta: {
+      hidden: true
+    },
     children: [
       {
         path: 'index',
@@ -140,6 +144,9 @@ export const constantRoutes: RouteConfig[] = [
   {
     path: '/host/i18n',
     component: Layout,
+    meta: {
+      hidden: true
+    },
     children: [
       {
         path: 'index',
@@ -155,6 +162,9 @@ export const constantRoutes: RouteConfig[] = [
   {
     path: '/client/dialog',
     component: Layout,
+    meta: {
+      hidden: true
+    },
     children: [
       {
         path: 'index',
