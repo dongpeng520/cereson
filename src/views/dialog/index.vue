@@ -53,7 +53,7 @@ export default class extends Vue {
   selectAction(data: any, data1: any) {
     this.actionDialogVisible = false;
     this.region = this.form.region;
-    this.name = this.form.name;
+    this.name = this.form.name
   }
 }
 </script>
