@@ -51,8 +51,8 @@ export default class extends Vue {
   name = '';
   private formLabelWidth = '120px';
   selectAction(data: any, data1: any) {
-    this.actionDialogVisible = false;
-    this.region = this.form.region
+    this.actionDialogVisible = false
+    this.region = this.form.region;
     this.name = this.form.name;
   }
 }

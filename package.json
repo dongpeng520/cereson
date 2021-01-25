@@ -9,22 +9,14 @@
     "build": "vue-cli-service build --mode production",
     "lint": "vue-cli-service lint",
     "svg": "vsvg -s ./src/icons/svg -t ./src/icons/components --ext ts --es6",
-    // "testlint": "eslint --fix --ext .js,.vue src"
+    "testlint": "eslint --ext .js,.vue src"
   },
   "husky": {
     "hooks": {
-      // "pre-commit": "npm run testlint"
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run testlint"
     }
   },
-  "lint-staged": {
-    // 此处可以配置文件夹和文件类型的范围
-    "src/**/*.{ts,js,json,css,scss,vue}": [
-      // "prettier --write", // 先使用prettier进行格式化
-      "eslint --fix", // 再使用eslint进行自动修复
-      "git add" // 所有通过的话执行git
-    ]
-  },
+  
   "dependencies": {
     "axios": "^0.19.0",
     "clipboard": "^2.0.6",
